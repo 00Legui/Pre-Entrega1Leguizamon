@@ -1,54 +1,47 @@
-import React from 'react';
-import Item from './Item';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import Item from '../ItemListContainer/Item';
+import { getProducts, getProductsByCategory } from '../../mocks/products';
 import './ItemListContainer.css';
-import mate1 from '../../assets/images/mate1.webp';
-import bombilla1 from '../../assets/images/bombilla1.webp';
-import yerba1 from '../../assets/images/yerba1.webp';
-import setMatero1 from '../../assets/images/set-matero1.webp';
 
-const ItemListContainer = ({ greeting }) => {
-  const products = [
-    {
-      id: 1,
-      title: "Mate Imperial",
-      price: 15000,
-      description: "Mate de calabaza premium con detalles en alpaca",
-      imageUrl: mate1
-    },
-    {
-      id: 2,
-      title: "Bombilla de Alpaca",
-      price: 8000,
-      description: "Bombilla artesanal con filtro desmontable",
-      imageUrl: bombilla1
-    },
-    {
-      id: 3,
-      title: "Yerba Mate Orgánica",
-      price: 2500,
-      description: "Yerba mate premium sin palo, cosecha especial",
-      imageUrl: yerba1
-    },
-    {
-      id: 4,
-      title: "Set Matero Completo",
-      price: 25000,
-      description: "Kit completo con mate, bombilla y yerbera",
-      imageUrl: setMatero1
-    }
-  ];
+const ItemListContainer = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
+
+  useEffect(() => {
+    setLoading(true);
+    
+    const fetchProducts = async () => {
+      try {
+        const data = id 
+          ? await getProductsByCategory(id)
+          : await getProducts();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [id]); // El efecto se ejecuta cuando cambia la categoría
+
+  if (loading) {
+    return <div className="loading">Cargando productos...</div>;
+  }
 
   return (
     <div className="item-list-container">
-      <h2 className="greeting-message">{greeting}</h2>
+      <h2 className="category-title">
+        {id ? `Categoría: ${id}` : 'Todos los productos'}
+      </h2>
       <div className="items-grid">
         {products.map(product => (
           <Item 
             key={product.id}
-            title={product.title}
-            price={product.price}
-            description={product.description}
-            imageUrl={product.imageUrl}
+            {...product}
           />
         ))}
       </div>

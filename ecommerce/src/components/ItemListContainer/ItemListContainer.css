@@ -4,7 +4,7 @@
   max-width: 1200px;
 }
 
-.greeting-message {
+.category-title {
   text-align: center;
   color: #2c3e50;
   font-size: 2rem;
@@ -16,4 +16,11 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   justify-items: center;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #666;
 }

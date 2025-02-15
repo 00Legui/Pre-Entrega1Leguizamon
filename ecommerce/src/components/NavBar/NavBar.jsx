@@ -1,25 +1,25 @@
 import React from 'react';
-import './NavBar.css';
-
+import { Link, NavLink } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget';
+import './NavBar.css';
 
 const NavBar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
-          <a href="/">Logo</a>
+          <Link to="/">MateShop</Link>
         </div>
         
         <ul className="nav-menu">
           <li className="nav-item">
-            <a href="/" className="nav-link">Inicio</a>
+            <NavLink to="/category/mates" className="nav-link">Mates</NavLink>
           </li>
           <li className="nav-item">
-            <a href="/productos" className="nav-link">Productos</a>
+            <NavLink to="/category/bombillas" className="nav-link">Bombillas</NavLink>
           </li>
           <li className="nav-item">
-            <a href="/contacto" className="nav-link">Contacto</a>
+            <NavLink to="/category/sets" className="nav-link">Sets</NavLink>
           </li>
           <li className="nav-item">
             <CartWidget />
