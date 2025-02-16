@@ -1,3 +1,7 @@
+import mate1 from '../assets/images/mate1.webp';
+import bombilla1 from '../assets/images/bombilla1.webp';
+import set1 from '../assets/images/set1.webp';
+import mate2 from '../assets/images/mate2.webp';
 
 const products = [
   {
@@ -5,7 +9,7 @@ const products = [
     title: "Mate Imperial",
     price: 15000,
     description: "Mate de calabaza premium con detalles en alpaca",
-    imageUrl: "https://http2.mlstatic.com/D_NQ_NP_2X_892128-MLA53453705213_012023-F.webp",
+    imageUrl: mate1,
     category: "mates",
     stock: 5
   },
@@ -14,7 +18,7 @@ const products = [
     title: "Bombilla Alpaca",
     price: 8000,
     description: "Bombilla artesanal premium",
-    imageUrl: "https://http2.mlstatic.com/D_NQ_NP_2X_657797-MLA53453672466_012023-F.webp",
+    imageUrl: bombilla1,
     category: "bombillas",
     stock: 10
   },
@@ -23,7 +27,7 @@ const products = [
     title: "Set Matero Completo",
     price: 25000,
     description: "Kit completo premium",
-    imageUrl: "https://http2.mlstatic.com/D_NQ_NP_2X_859228-MLA54705376801_032023-F.webp",
+    imageUrl: set1,
     category: "sets",
     stock: 3
   },
@@ -32,7 +36,7 @@ const products = [
     title: "Mate Camionero",
     price: 12000,
     description: "Mate de madera forrado en cuero",
-    imageUrl: "https://http2.mlstatic.com/D_NQ_NP_2X_787221-MLA53453672464_012023-F.webp",
+    imageUrl: mate2,
     category: "mates",
     stock: 8
   }

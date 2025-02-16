@@ -18,7 +18,6 @@ const ItemDetailContainer = () => {
         if (data) {
           setProduct(data);
         } else {
-          // Si no se encuentra el producto, redirigimos al home
           navigate('/');
         }
       } catch (error) {

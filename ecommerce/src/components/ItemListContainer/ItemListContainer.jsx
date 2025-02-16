@@ -26,7 +26,7 @@ const ItemListContainer = () => {
     };
 
     fetchProducts();
-  }, [id]); // El efecto se ejecuta cuando cambia la categoría
+  }, [id]);
 
   if (loading) {
     return <div className="loading">Cargando productos...</div>;
